@@ -45,6 +45,7 @@ jobs:
 
       - name: Initialize gomobile
         run: |
+          go get golang.org/x/mobile/bind
           gomobile init
         env:
           ANDROID_HOME: ${{ env.ANDROID_SDK_ROOT }}
@@ -52,6 +53,7 @@ jobs:
 
       - name: Build Android AAR
         run: |
+          go mod tidy
           go mod download
           gomobile bind -target=android -androidapi=31 -o warden_sdk.aar -v github.com/jiangsu/warden_sdk/warden_sdk
         env:

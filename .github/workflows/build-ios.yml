@@ -31,25 +31,27 @@ jobs:
       
       - name: Initialize gomobile
         run: |
+          go get golang.org/x/mobile/bind
           gomobile init
       
       - name: Build iOS Framework
         run: |
+          go mod tidy
           go mod download
           gomobile bind \
             -target=ios \
             -iosversion=15.0 \
-            -o Warden_sdk.framework \
+            -o Warden_sdk.xcframework \
             -v github.com/jiangsu/warden_sdk/warden_sdk
       
       - name: Upload Framework artifact
         uses: actions/upload-artifact@v4
         with:
-          name: warden-sdk-ios-framework
-          path: Warden_sdk.framework
+          name: warden-sdk-ios-xcframework
+          path: Warden_sdk.xcframework
           retention-days: 30
       
       - name: Get Framework info
         run: |
-          ls -lh Warden_sdk.framework
-          echo "✅ iOS Framework 编译成功！"
+          ls -lh Warden_sdk.xcframework
+          echo "✅ iOS XCFramework 编译成功！"
