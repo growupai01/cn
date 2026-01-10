@@ -25,6 +25,8 @@ jobs:
         run: |
           go install golang.org/x/mobile/cmd/gomobile@latest
           go install golang.org/x/mobile/cmd/gobind@latest
+          echo "GOPATH=$(go env GOPATH)" >> $GITHUB_ENV
+          echo "GOBIN=$(go env GOPATH)/bin" >> $GITHUB_ENV
           echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
       
       - name: Initialize gomobile
@@ -38,7 +40,7 @@ jobs:
             -target=ios \
             -iosversion=15.0 \
             -o Warden_sdk.framework \
-            -v ./warden_sdk
+            -v github.com/jiangsu/warden_sdk/warden_sdk
       
       - name: Upload Framework artifact
         uses: actions/upload-artifact@v4

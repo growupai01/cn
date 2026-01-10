@@ -10,7 +10,7 @@ import (
 // 演示：如何使用 Warden SDK
 
 func main() {
-	fmt.Println("=== Warden SDK 使用示例 ===\n")
+	fmt.Println("=== Warden SDK 使用示例 ===")
 
 	// 1. 同步时间
 	fmt.Println("1. 同步时间")
@@ -187,9 +187,9 @@ func deviceBinding() {
 
 // 演示数据包合并（多帧数据）
 func demonstratePacketMerging() {
-	fmt.Println("\n=== 演示：数据包合并 ===\n")
+	fmt.Println("=== 演示：数据包合并 ===")
 
-	merger := warden_sdk.NewPacketMerger()
+	_ = warden_sdk.NewPacketMerger()
 
 	// 模拟接收3帧数据
 	fmt.Println("接收多帧消息数据...")
@@ -208,7 +208,7 @@ func demonstratePacketMerging() {
 
 // 演示开关操作
 func demonstrateSwitchOperations() {
-	fmt.Println("\n=== 演示：开关操作 ===\n")
+	fmt.Println("=== 演示：开关操作 ===")
 
 	var flags uint32 = 0
 
