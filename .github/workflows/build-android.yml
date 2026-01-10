@@ -32,32 +32,30 @@ jobs:
       
       - name: Install Android NDK
         run: |
-          sdkmanager --install "ndk;28.2.13676358"
-          echo "ANDROID_NDK_HOME=$ANDROID_SDK_ROOT/ndk/28.2.13676358" >> $GITHUB_ENV
-      
+          yes | sdkmanager --install "ndk;25.2.9519653"
+          echo "ANDROID_NDK_HOME=$ANDROID_SDK_ROOT/ndk/25.2.9519653" >> $GITHUB_ENV
+
       - name: Install gomobile
         run: |
           go install golang.org/x/mobile/cmd/gomobile@latest
           go install golang.org/x/mobile/cmd/gobind@latest
-          echo "$HOME/go/bin" >> $GITHUB_PATH
-      
+          echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
+
       - name: Initialize gomobile
         run: |
           gomobile init
         env:
           ANDROID_HOME: ${{ env.ANDROID_SDK_ROOT }}
-          ANDROID_NDK_HOME: ${{ env.ANDROID_SDK_ROOT }}/ndk/28.2.13676358
-      
+          ANDROID_NDK_HOME: ${{ env.ANDROID_SDK_ROOT }}/ndk/25.2.9519653
+
       - name: Build Android AAR
         run: |
-          gomobile bind \
-            -target=android \
-            -androidapi=31 \
-            -o warden_sdk.aar \
-            ./warden_sdk
+          # 确保依赖项已加载
+          go mod download
+          gomobile bind -target=android -androidapi=31 -o warden_sdk.aar -v ./warden_sdk
         env:
           ANDROID_HOME: ${{ env.ANDROID_SDK_ROOT }}
-          ANDROID_NDK_HOME: ${{ env.ANDROID_SDK_ROOT }}/ndk/28.2.13676358
+          ANDROID_NDK_HOME: ${{ env.ANDROID_SDK_ROOT }}/ndk/25.2.9519653
       
       - name: Upload AAR artifact
         uses: actions/upload-artifact@v4
