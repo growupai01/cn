@@ -3,16 +3,16 @@ package warden_sdk
 // 命令常量 - Command Constants
 const (
 	// 设备属性类 - Device Properties (0x50-0x5D)
-	CMD_SYNC_TIME    byte = 0x50 // 同步时间
-	CMD_BATTERY      byte = 0x51 // 电量获取
-	CMD_BRIGHTNESS   byte = 0x52 // 屏幕亮度
-	CMD_LANGUAGE     byte = 0x53 // 设备语言
-	CMD_DND          byte = 0x57 // 勿扰功能
-	CMD_FIND_PHONE   byte = 0x59 // 寻找手机
-	CMD_WEATHER_UNIT byte = 0x5A // 天气单位设置
-	CMD_TIME_FORMAT  byte = 0x5B // 12h/24h时间制切换
-	CMD_DEVICE_INFO  byte = 0x5C // 设备端信息
-	CMD_APP_INFO     byte = 0x5D // 应用端信息
+	CMD_SYNC_TIME    = 0x50 // 同步时间
+	CMD_BATTERY      = 0x51 // 电量获取
+	CMD_BRIGHTNESS   = 0x52 // 屏幕亮度
+	CMD_LANGUAGE     = 0x53 // 设备语言
+	CMD_DND          = 0x57 // 勿扰功能
+	CMD_FIND_PHONE   = 0x59 // 寻找手机
+	CMD_WEATHER_UNIT = 0x5A // 天气单位设置
+	CMD_TIME_FORMAT  = 0x5B // 12h/24h时间制切换
+	CMD_DEVICE_INFO  = 0x5C // 设备端信息
+	CMD_APP_INFO     = 0x5D // 应用端信息
 
 	// 状态控制类 - Status Control (0x80-0x91)
 	CMD_SWITCH_CONTROL   byte = 0x80 // 开关设置
@@ -28,156 +28,156 @@ const (
 
 // 命令类型常量 - Command Type Constants
 const (
-	CMD_TYPE_REQUEST    byte = 0x01 // Request: 手机 -> 设备
-	CMD_TYPE_RESPONSE   byte = 0x02 // Response: 设备 -> 手机
-	CMD_TYPE_NOTIFY     byte = 0x03 // Notify: 主动上报，不需要对端回复
-	CMD_TYPE_REQUEST_N  byte = 0x04 // Request_n: 设备 -> 手机
-	CMD_TYPE_RESPONSE_N byte = 0x05 // Response_n: 手机 -> 设备
-	CMD_TYPE_NOTIFY_N   byte = 0x06 // Notify_n: 主动上报，不需要对端回复
+	CMD_TYPE_REQUEST    = 0x01 // Request: 手机 -> 设备
+	CMD_TYPE_RESPONSE   = 0x02 // Response: 设备 -> 手机
+	CMD_TYPE_NOTIFY     = 0x03 // Notify: 主动上报，不需要对端回复
+	CMD_TYPE_REQUEST_N  = 0x04 // Request_n: 设备 -> 手机
+	CMD_TYPE_RESPONSE_N = 0x05 // Response_n: 手机 -> 设备
+	CMD_TYPE_NOTIFY_N   = 0x06 // Notify_n: 主动上报，不需要对端回复
 )
 
 // Action命令常量 - Action Command Constants
 const (
-	ACTION_QUERY byte = 0x00 // 查询
-	ACTION_SET   byte = 0x01 // 设置
+	ACTION_QUERY = 0x00 // 查询
+	ACTION_SET   = 0x01 // 设置
 )
 
 // 返回值常量 - Response Code Constants (表7-1)
 const (
-	CMD_RESULT_OK          byte = 0x00 // 成功
-	CMD_RESULT_FAIL        byte = 0x01 // 失败
-	CMD_RESULT_LEN_INVALID byte = 0x02 // 包长度不合法
-	CMD_RESULT_CMD_INVALID byte = 0x03 // 命令类型不合法
-	CMD_RESULT_IDX_INVALID byte = 0x04 // 编号索引不合法
-	CMD_RESULT_NOT_SUPPORT byte = 0x05 // 设备不支持该命令
-	CMD_RESULT_SWI_ERROR   byte = 0x06 // 开关操作不合法
-	CMD_RESULT_CHECK_ERROR byte = 0x07 // 数据校验错误
-	CMD_RESULT_PACKET_LOSS byte = 0x08 // 上一包数据丢失
+	CMD_RESULT_OK          = 0x00 // 成功
+	CMD_RESULT_FAIL        = 0x01 // 失败
+	CMD_RESULT_LEN_INVALID = 0x02 // 包长度不合法
+	CMD_RESULT_CMD_INVALID = 0x03 // 命令类型不合法
+	CMD_RESULT_IDX_INVALID = 0x04 // 编号索引不合法
+	CMD_RESULT_NOT_SUPPORT = 0x05 // 设备不支持该命令
+	CMD_RESULT_SWI_ERROR   = 0x06 // 开关操作不合法
+	CMD_RESULT_CHECK_ERROR = 0x07 // 数据校验错误
+	CMD_RESULT_PACKET_LOSS = 0x08 // 上一包数据丢失
 )
 
 // 语言常量 - Language Constants (表7-2-1)
 const (
-	LANG_ENGLISH             byte = 0x00
-	LANG_CHINESE_SIMPLIFIED  byte = 0x01
-	LANG_ITALIAN             byte = 0x02
-	LANG_SPANISH             byte = 0x03
-	LANG_PORTUGUESE          byte = 0x04
-	LANG_RUSSIAN             byte = 0x05
-	LANG_JAPANESE            byte = 0x06
-	LANG_CHINESE_TRADITIONAL byte = 0x07
-	LANG_GERMAN              byte = 0x08
-	LANG_KOREAN              byte = 0x09
-	LANG_THAI                byte = 0x0A
-	LANG_ARABIC              byte = 0x0B
-	LANG_TURKISH             byte = 0x0C
-	LANG_FRENCH              byte = 0x0D
-	LANG_VIETNAMESE          byte = 0x0E
-	LANG_POLISH              byte = 0x0F
-	LANG_DUTCH               byte = 0x10
-	LANG_HEBREW              byte = 0x11
-	LANG_PERSIAN             byte = 0x12
-	LANG_GREEK               byte = 0x13
-	LANG_MALAYSIAN           byte = 0x14
-	LANG_BURMESE             byte = 0x15
-	LANG_DANISH              byte = 0x16
-	LANG_UKRAINIAN           byte = 0x17
-	LANG_INDONESIAN          byte = 0x18
-	LANG_CZECH               byte = 0x19
-	LANG_HINDI               byte = 0x20
+	LANG_ENGLISH             = 0x00
+	LANG_CHINESE_SIMPLIFIED  = 0x01
+	LANG_ITALIAN             = 0x02
+	LANG_SPANISH             = 0x03
+	LANG_PORTUGUESE          = 0x04
+	LANG_RUSSIAN             = 0x05
+	LANG_JAPANESE            = 0x06
+	LANG_CHINESE_TRADITIONAL = 0x07
+	LANG_GERMAN              = 0x08
+	LANG_KOREAN              = 0x09
+	LANG_THAI                = 0x0A
+	LANG_ARABIC              = 0x0B
+	LANG_TURKISH             = 0x0C
+	LANG_FRENCH              = 0x0D
+	LANG_VIETNAMESE          = 0x0E
+	LANG_POLISH              = 0x0F
+	LANG_DUTCH               = 0x10
+	LANG_HEBREW              = 0x11
+	LANG_PERSIAN             = 0x12
+	LANG_GREEK               = 0x13
+	LANG_MALAYSIAN           = 0x14
+	LANG_BURMESE             = 0x15
+	LANG_DANISH              = 0x16
+	LANG_UKRAINIAN           = 0x17
+	LANG_INDONESIAN          = 0x18
+	LANG_CZECH               = 0x19
+	LANG_HINDI               = 0x20
 )
 
 // 消息类型常量 - Message Type Constants (表7-3-1)
 const (
-	MSG_NULL               byte = 0x00
-	MSG_INCOMING_CALL      byte = 0x01 // 来电
-	MSG_MISSED_CALL        byte = 0x02 // 未接来电
-	MSG_SMS                byte = 0x03 // 短信
-	MSG_EMAIL              byte = 0x04 // 邮件
-	MSG_SCHEDULE           byte = 0x05 // 日程
-	MSG_FACETIME           byte = 0x06
-	MSG_QQ                 byte = 0x07
-	MSG_SKYPE              byte = 0x08
-	MSG_WECHAT             byte = 0x09 // 微信
-	MSG_WHATSAPP           byte = 0x0A
-	MSG_GMAIL              byte = 0x0B
-	MSG_HANGOUT            byte = 0x0C
-	MSG_INBOX              byte = 0x0D
-	MSG_LINE               byte = 0x0E
-	MSG_TWITTER            byte = 0x0F // 推特
-	MSG_FACEBOOK           byte = 0x10 // 脸书
-	MSG_FACEBOOK_MESSENGER byte = 0x11
-	MSG_INSTAGRAM          byte = 0x12
-	MSG_WEIBO              byte = 0x13 // 微博
-	MSG_KAKAOTALK          byte = 0x14
-	MSG_FACEBOOK_MANAGER   byte = 0x15
-	MSG_VIBER              byte = 0x16
-	MSG_VKCLIENT           byte = 0x17
-	MSG_TELEGRAM           byte = 0x18
-	MSG_SNAPCHAT           byte = 0x1A
-	MSG_DINGTALK           byte = 0x1B // 钉钉
-	MSG_ALIPAY             byte = 0x1C // 支付宝
-	MSG_TIKTOK             byte = 0x1D // 抖音
-	MSG_LINKEDIN           byte = 0x1E // 领英
+	MSG_NULL               = 0x00
+	MSG_INCOMING_CALL      = 0x01 // 来电
+	MSG_MISSED_CALL        = 0x02 // 未接来电
+	MSG_SMS                = 0x03 // 短信
+	MSG_EMAIL              = 0x04 // 邮件
+	MSG_SCHEDULE           = 0x05 // 日程
+	MSG_FACETIME           = 0x06
+	MSG_QQ                 = 0x07
+	MSG_SKYPE              = 0x08
+	MSG_WECHAT             = 0x09 // 微信
+	MSG_WHATSAPP           = 0x0A
+	MSG_GMAIL              = 0x0B
+	MSG_HANGOUT            = 0x0C
+	MSG_INBOX              = 0x0D
+	MSG_LINE               = 0x0E
+	MSG_TWITTER            = 0x0F // 推特
+	MSG_FACEBOOK           = 0x10 // 脸书
+	MSG_FACEBOOK_MESSENGER = 0x11
+	MSG_INSTAGRAM          = 0x12
+	MSG_WEIBO              = 0x13 // 微博
+	MSG_KAKAOTALK          = 0x14
+	MSG_FACEBOOK_MANAGER   = 0x15
+	MSG_VIBER              = 0x16
+	MSG_VKCLIENT           = 0x17
+	MSG_TELEGRAM           = 0x18
+	MSG_SNAPCHAT           = 0x1A
+	MSG_DINGTALK           = 0x1B // 钉钉
+	MSG_ALIPAY             = 0x1C // 支付宝
+	MSG_TIKTOK             = 0x1D // 抖音
+	MSG_LINKEDIN           = 0x1E // 领英
 )
 
 // 开关类型常量 - Switch Type Constants (表7-4-1)
 const (
-	SWITCH_ANTI_LOST     byte = 0x00 // 防丢开关
-	SWITCH_RAISE_WRIST   byte = 0x01 // 抬手亮屏开关
-	SWITCH_AUTO_SYNC     byte = 0x02 // 自动同步开关
-	SWITCH_SLEEP_MONITOR byte = 0x04 // 睡眠监测开关
-	SWITCH_MSG_TOTAL     byte = 0x05 // 消息提醒总开关
-	SWITCH_HOURLY_SPORT  byte = 0x06 // 整点上传运动数据开关
-	SWITCH_GOAL_ACHIEVED byte = 0x07 // 目标达成开关
-	SWITCH_MSG_SCREEN    byte = 0x09 // 消息提醒亮屏开关
-	SWITCH_SOUND         byte = 0x0A // 声音开关
-	SWITCH_VIBRATE_TOTAL byte = 0x0B // 震动总开关
-	SWITCH_HOURLY_HEALTH byte = 0x0C // 整点上传健康数据开关
-	SWITCH_MSG_VIBRATE   byte = 0x0D // 消息提醒震动开关
+	SWITCH_ANTI_LOST     = 0x00 // 防丢开关
+	SWITCH_RAISE_WRIST   = 0x01 // 抬手亮屏开关
+	SWITCH_AUTO_SYNC     = 0x02 // 自动同步开关
+	SWITCH_SLEEP_MONITOR = 0x04 // 睡眠监测开关
+	SWITCH_MSG_TOTAL     = 0x05 // 消息提醒总开关
+	SWITCH_HOURLY_SPORT  = 0x06 // 整点上传运动数据开关
+	SWITCH_GOAL_ACHIEVED = 0x07 // 目标达成开关
+	SWITCH_MSG_SCREEN    = 0x09 // 消息提醒亮屏开关
+	SWITCH_SOUND         = 0x0A // 声音开关
+	SWITCH_VIBRATE_TOTAL = 0x0B // 震动总开关
+	SWITCH_HOURLY_HEALTH = 0x0C // 整点上传健康数据开关
+	SWITCH_MSG_VIBRATE   = 0x0D // 消息提醒震动开关
 )
 
 // 天气类型常量 - Weather Type Constants
 const (
-	WEATHER_CLOUDY    byte = 0x00 // 多云
-	WEATHER_SUNSHINE  byte = 0x01 // 晴天
-	WEATHER_SNOW      byte = 0x02 // 雪天
-	WEATHER_RAIN      byte = 0x03 // 雨天
-	WEATHER_OVERCAST  byte = 0x04 // 阴天
-	WEATHER_SAND_DUST byte = 0x05 // 沙尘天气
-	WEATHER_WINDY     byte = 0x06 // 大风天气
-	WEATHER_HAZE      byte = 0x07 // 阴霾天气
+	WEATHER_CLOUDY    = 0x00 // 多云
+	WEATHER_SUNSHINE  = 0x01 // 晴天
+	WEATHER_SNOW      = 0x02 // 雪天
+	WEATHER_RAIN      = 0x03 // 雨天
+	WEATHER_OVERCAST  = 0x04 // 阴天
+	WEATHER_SAND_DUST = 0x05 // 沙尘天气
+	WEATHER_WINDY     = 0x06 // 大风天气
+	WEATHER_HAZE      = 0x07 // 阴霾天气
 )
 
 // 天气命令类型 - Weather Command Type
 const (
-	WEATHER_CMD_TYPE         byte = 0x00 // 天气类型
-	WEATHER_CMD_CURRENT_TEMP byte = 0x01 // 当前温度
-	WEATHER_CMD_MIN_TEMP     byte = 0x02 // 最低温度
-	WEATHER_CMD_MAX_TEMP     byte = 0x03 // 最高温度
-	WEATHER_CMD_LOCATION     byte = 0x04 // 地点位置
-	WEATHER_CMD_HUMIDITY     byte = 0x05 // 湿度
-	WEATHER_CMD_WIND_SPEED   byte = 0x06 // 风速
-	WEATHER_CMD_UV_INDEX     byte = 0x07 // 紫外线指数
-	WEATHER_CMD_PRESSURE     byte = 0x08 // 气压
-	WEATHER_CMD_SUNRISE      byte = 0x09 // 日出时间
-	WEATHER_CMD_SUNSET       byte = 0x0A // 日落时间
-	WEATHER_CMD_RAIN_PROB    byte = 0x0B // 降雨概率
-	WEATHER_CMD_RAINFALL     byte = 0x0C // 降雨量
-	WEATHER_CMD_VISIBILITY   byte = 0x0D // 能见度
-	WEATHER_CMD_AIR_QUALITY  byte = 0x0E // 空气质量指数
+	WEATHER_CMD_TYPE         = 0x00 // 天气类型
+	WEATHER_CMD_CURRENT_TEMP = 0x01 // 当前温度
+	WEATHER_CMD_MIN_TEMP     = 0x02 // 最低温度
+	WEATHER_CMD_MAX_TEMP     = 0x03 // 最高温度
+	WEATHER_CMD_LOCATION     = 0x04 // 地点位置
+	WEATHER_CMD_HUMIDITY     = 0x05 // 湿度
+	WEATHER_CMD_WIND_SPEED   = 0x06 // 风速
+	WEATHER_CMD_UV_INDEX     = 0x07 // 紫外线指数
+	WEATHER_CMD_PRESSURE     = 0x08 // 气压
+	WEATHER_CMD_SUNRISE      = 0x09 // 日出时间
+	WEATHER_CMD_SUNSET       = 0x0A // 日落时间
+	WEATHER_CMD_RAIN_PROB    = 0x0B // 降雨概率
+	WEATHER_CMD_RAINFALL     = 0x0C // 降雨量
+	WEATHER_CMD_VISIBILITY   = 0x0D // 能见度
+	WEATHER_CMD_AIR_QUALITY  = 0x0E // 空气质量指数
 )
 
 // 设备类型 - Device Type
 const (
-	DEVICE_TYPE_SQUARE   byte = 0x00 // 方形手表
-	DEVICE_TYPE_ROUND    byte = 0x01 // 圆形手表
-	DEVICE_TYPE_BRACELET byte = 0x02 // 手环
+	DEVICE_TYPE_SQUARE   = 0x00 // 方形手表
+	DEVICE_TYPE_ROUND    = 0x01 // 圆形手表
+	DEVICE_TYPE_BRACELET = 0x02 // 手环
 )
 
 // 手机类型 - Phone Type
 const (
-	PHONE_TYPE_ANDROID byte = 0x00 // 安卓手机
-	PHONE_TYPE_APPLE   byte = 0x01 // 苹果手机
+	PHONE_TYPE_ANDROID = 0x00 // 安卓手机
+	PHONE_TYPE_APPLE   = 0x01 // 苹果手机
 )
 
 // 时区常量 - Time Zone Constants
@@ -211,14 +211,14 @@ const (
 
 // 温度单位 - Temperature Unit
 const (
-	TEMP_UNIT_CELSIUS    byte = 0x00 // 摄氏度
-	TEMP_UNIT_FAHRENHEIT byte = 0x01 // 华氏度
+	TEMP_UNIT_CELSIUS    = 0x00 // 摄氏度
+	TEMP_UNIT_FAHRENHEIT = 0x01 // 华氏度
 )
 
 // 时间制 - Time Format
 const (
-	TIME_FORMAT_12H byte = 0x00 // 12小时制
-	TIME_FORMAT_24H byte = 0x01 // 24小时制
+	TIME_FORMAT_12H = 0x00 // 12小时制
+	TIME_FORMAT_24H = 0x01 // 24小时制
 )
 
 // BLE广播UUID
